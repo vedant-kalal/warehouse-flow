@@ -51,15 +51,23 @@ export function AppSidebar() {
           <NavLink
             to={item.url}
             end={item.url === '/dashboard'}
-            className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive(item.url) ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')}
+            className={cn(
+              'flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-all duration-200 relative group',
+              isActive(item.url)
+                ? 'bg-accent text-foreground'
+                : 'text-sidebar-foreground hover:bg-accent/50 hover:text-foreground'
+            )}
             activeClassName="bg-accent text-foreground"
           >
-            <item.icon className="h-4 w-4 shrink-0" />
+            {isActive(item.url) && (
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full gradient-primary" />
+            )}
+            <item.icon className={cn('h-4 w-4 shrink-0 transition-colors', isActive(item.url) && 'text-primary')} />
             {!collapsed && (
               <>
                 <span className="flex-1">{item.title}</span>
                 {badge > 0 && (
-                  <span className={cn('text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-full bg-primary/20 text-primary', badge > 0 && 'animate-pulse-badge')}>
+                  <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full gradient-primary text-primary-foreground shadow-sm animate-pulse-badge">
                     {badge}
                   </span>
                 )}
@@ -72,38 +80,52 @@ export function AppSidebar() {
   };
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-border">
-      <div className={cn('px-4 py-4 border-b border-border', collapsed && 'px-2')}>
+    <Sidebar collapsible="icon" className="border-r border-border/50">
+      <div className={cn('px-4 py-5 border-b border-border/50', collapsed && 'px-2')}>
         {collapsed ? (
-          <span className="text-primary font-bold text-lg block text-center">C</span>
+          <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center mx-auto shadow-sm glow-primary">
+            <span className="text-primary-foreground font-bold text-sm">C</span>
+          </div>
         ) : (
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xs">CI</span>
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 gradient-primary rounded-xl flex items-center justify-center shadow-sm glow-primary">
+              <span className="text-primary-foreground font-bold text-sm">CI</span>
             </div>
-            <span className="font-semibold text-sm tracking-tight text-foreground">CoreInventory</span>
+            <div>
+              <span className="font-bold text-sm tracking-tight text-foreground">CoreInventory</span>
+              <p className="text-[10px] text-muted-foreground font-mono">v2.1.0</p>
+            </div>
           </div>
         )}
       </div>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground px-3">Operations</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground/60 px-3 font-semibold">Operations</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>{mainItems.map(renderItem)}</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground px-3">Configuration</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-[10px] uppercase tracking-widest text-muted-foreground/60 px-3 font-semibold">Configuration</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>{configItems.map(renderItem)}</SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="border-t border-border p-2">
+      <SidebarFooter className="border-t border-border/50 p-2">
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
-            <NavLink to="/profile" className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')} activeClassName="bg-accent text-foreground">
-              <User className="h-4 w-4 shrink-0" />
+            <NavLink
+              to="/profile"
+              className={cn(
+                'flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-all duration-200',
+                isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50'
+              )}
+              activeClassName="bg-accent text-foreground"
+            >
+              <div className="w-6 h-6 rounded-full gradient-primary flex items-center justify-center">
+                <User className="h-3 w-3 text-primary-foreground" />
+              </div>
               {!collapsed && <span>Profile</span>}
             </NavLink>
           </SidebarMenuButton>
