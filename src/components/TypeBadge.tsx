@@ -11,7 +11,7 @@ const typeConfig: Record<OperationType, { label: string; className: string }> = 
 export function TypeBadge({ type, className }: { type: OperationType; className?: string }) {
   const config = typeConfig[type];
   return (
-    <span className={cn('inline-flex items-center rounded-sm border px-2 py-0.5 text-xs font-medium font-mono uppercase tracking-wider', config.className, className)}>
+    <span className={cn('inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium font-mono uppercase tracking-wider transition-snappy', config.className, className)}>
       {config.label}
     </span>
   );
