@@ -63,14 +63,20 @@ class DatabaseSchema:
     async def load_schema(self):
         """Load all table schemas from database."""
         async with self.engine.begin() as conn:
-            inspector = inspect(self.engine)
-            for table_name in inspector.get_table_names():
-                if table_name in self.tables_map:
-                    columns = inspector.get_columns(table_name)
-                    self.schema[table_name] = {
-                        'columns': [col['name'] for col in columns],
-                        'column_types': {col['name']: str(col['type']) for col in columns}
-                    }
+            # Use run_sync to perform inspection within the async context
+            def inspect_tables(sync_conn):
+                inspector = inspect(sync_conn)
+                schema = {}
+                for table_name in inspector.get_table_names():
+                    if table_name in self.tables_map:
+                        columns = inspector.get_columns(table_name)
+                        schema[table_name] = {
+                            'columns': [col['name'] for col in columns],
+                            'column_types': {col['name']: str(col['type']) for col in columns}
+                        }
+                return schema
+
+            self.schema = await conn.run_sync(inspect_tables)
 
     def get_available_fields(self, table_name: str) -> List[str]:
         """Get available fields for a table."""
