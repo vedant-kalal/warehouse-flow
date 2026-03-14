@@ -78,7 +78,7 @@ export function AppSidebar() {
           <span className="text-primary font-bold text-lg block text-center">C</span>
         ) : (
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-primary rounded-sm flex items-center justify-center">
+            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xs">CI</span>
             </div>
             <span className="font-semibold text-sm tracking-tight text-foreground">CoreInventory</span>
