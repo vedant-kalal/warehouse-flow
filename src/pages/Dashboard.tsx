@@ -100,7 +100,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-sm overflow-hidden">
+          <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
