@@ -93,7 +93,7 @@ export default function Dashboard() {
             </div>
             <div className="flex gap-1">
               {(['all', 'draft', 'confirmed', 'done'] as FilterStatus[]).map(s => (
-                <button key={s} onClick={() => setStatusFilter(s)} className={cn('px-3 py-1.5 text-xs rounded-sm font-mono uppercase tracking-wider transition-snappy btn-press', statusFilter === s ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground')}>
+                <button key={s} onClick={() => setStatusFilter(s)} className={cn('px-3 py-1.5 text-xs rounded-full font-mono uppercase tracking-wider transition-all duration-200 btn-press', statusFilter === s ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-accent/50')}>
                   {s === 'all' ? 'All' : s}
                 </button>
               ))}
