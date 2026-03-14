@@ -70,7 +70,7 @@ export default function Dashboard() {
         {/* KPI Cards */}
         <div className="grid grid-cols-5 gap-4">
           {kpis.map((kpi, idx) => (
-            <div key={kpi.label} className={cn('h-24 bg-card border rounded-sm p-4 flex flex-col justify-between surface-glow', kpi.alert ? 'border-primary' : 'border-border')}>
+            <div key={kpi.label} className={cn('h-24 bg-card border rounded-lg p-4 flex flex-col justify-between surface-glow animate-fade-in hover:scale-[1.02] transition-transform duration-200', kpi.alert ? 'border-primary' : 'border-border')} style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-widest text-muted-foreground">{kpi.label}</span>
                 <kpi.icon className={cn('h-3.5 w-3.5', kpi.alert ? 'text-primary' : 'text-muted-foreground')} />
