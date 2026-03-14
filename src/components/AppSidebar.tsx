@@ -59,7 +59,7 @@ export function AppSidebar() {
               <>
                 <span className="flex-1">{item.title}</span>
                 {badge > 0 && (
-                  <span className={cn('text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-sm bg-primary/20 text-primary', badge > 0 && 'animate-pulse-badge')}>
+                  <span className={cn('text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-full bg-primary/20 text-primary', badge > 0 && 'animate-pulse-badge')}>
                     {badge}
                   </span>
                 )}

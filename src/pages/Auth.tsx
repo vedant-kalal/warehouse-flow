@@ -102,17 +102,17 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-[380px] bg-card border border-border rounded-lg p-6 surface-border">
+      <div className="w-full max-w-[380px] bg-card border border-border rounded-xl p-6 surface-border animate-scale-in">
         <div className="flex items-center gap-2 mb-6">
-          <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-sm">CI</span>
           </div>
           <span className="font-semibold text-foreground">Access CoreInventory</span>
         </div>
         <Tabs value={tab} onValueChange={setTab} className="w-full">
-          <TabsList className="w-full bg-muted rounded-sm">
-            <TabsTrigger value="login" className="flex-1 rounded-sm text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Login</TabsTrigger>
-            <TabsTrigger value="signup" className="flex-1 rounded-sm text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Sign Up</TabsTrigger>
+          <TabsList className="w-full bg-muted rounded-lg">
+            <TabsTrigger value="login" className="flex-1 rounded-lg text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Login</TabsTrigger>
+            <TabsTrigger value="signup" className="flex-1 rounded-lg text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Sign Up</TabsTrigger>
           </TabsList>
           <TabsContent value="login">
             <form onSubmit={handleLogin} className="space-y-4 mt-4">
