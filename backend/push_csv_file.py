@@ -74,7 +74,7 @@ async def load_products(db: AsyncSession, csv_path: Path):
             category_id=row['category_id'],
             unit=row['unit'],
             reorder_level=int(row['reorder_level']),
-            is_active=row['is_active'].lower() == 'true',
+            is_active=bool(row['is_active']) if isinstance(row['is_active'], bool) else str(row['is_active']).lower() == 'true',
             embedding=None,  # Will be generated later
             created_at=datetime.fromisoformat(str(row['created_at']))
         )
