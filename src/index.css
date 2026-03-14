@@ -5,7 +5,68 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root, .light {
+    --background: 0 0% 97%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 68% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 25%;
+
+    --muted: 0 0% 93%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 90%;
+    --ring: 0 68% 52%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 40%;
+    --sidebar-primary: 0 68% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 68% 52%;
+
+    --status-draft: 240 5% 55%;
+    --status-confirmed: 38 92% 45%;
+    --status-done: 217 91% 50%;
+    --status-cancelled: 0 84% 55%;
+
+    --stock-healthy: 142 71% 38%;
+    --stock-warning: 38 92% 45%;
+    --stock-critical: 0 84% 55%;
+
+    --surface: 0 0% 100%;
+    --surface-elevated: 0 0% 100%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(0 68% 52%), hsl(15 80% 50%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-sidebar: linear-gradient(180deg, hsl(0 0% 98%), hsl(0 0% 96%));
+    
+    --shadow-card: 0 2px 12px -2px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 4px 20px -4px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+    --shadow-glow-primary: 0 0 20px -4px hsl(0 68% 52% / 0.2);
+  }
+
+  .dark {
     --background: 0 0% 4%;
     --foreground: 0 0% 92%;
 
