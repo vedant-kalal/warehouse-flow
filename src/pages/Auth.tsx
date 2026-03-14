@@ -87,7 +87,7 @@ export default function Auth() {
                     value={d}
                     onChange={e => handleOtpChange(i, e.target.value)}
                     maxLength={1}
-                    className="w-10 h-12 text-center text-2xl font-mono bg-surface border border-border rounded-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-10 h-12 text-center text-2xl font-mono bg-surface border border-border rounded-lg text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-200"
                   />
                 ))}
               </div>
