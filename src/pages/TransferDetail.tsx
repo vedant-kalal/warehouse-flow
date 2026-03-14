@@ -39,7 +39,7 @@ export default function TransferDetail() {
         <ProgressSteps current={transfer.status} />
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-8 space-y-4">
-            <div className="bg-card border border-border rounded-sm p-4 space-y-3">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-3 animate-fade-in">
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Transfer Details</h2>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div><span className="text-muted-foreground">From:</span> <span className="ml-2">{transfer.fromLocation}</span></div>
