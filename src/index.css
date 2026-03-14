@@ -142,8 +142,15 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.01em;
-    background-image: radial-gradient(ellipse at top, hsl(0 0% 6%) 0%, hsl(0 0% 4%) 70%);
     min-height: 100vh;
+  }
+
+  .dark body, body.dark, .dark {
+    background-image: radial-gradient(ellipse at top, hsl(0 0% 6%) 0%, hsl(0 0% 4%) 70%);
+  }
+
+  .light body, body.light, .light {
+    background-image: radial-gradient(ellipse at top, hsl(0 0% 98%) 0%, hsl(0 0% 96%) 70%);
   }
 
   .font-mono {
