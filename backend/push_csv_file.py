@@ -182,25 +182,6 @@ async def load_operation_items(db: AsyncSession, csv_path: Path):
     print(f"✅ Loaded {len(df)} operation items")
 
 
-async def create_default_user(db: AsyncSession):
-    """Create a default admin user if none exists."""
-    print("\n👤 Creating default admin user...")
-
-    from auth.password import hash_password
-    from uuid import uuid4
-
-    admin_user = User(
-        id=str(uuid4()),
-        email="admin@inventory.local",
-        password_hash=hash_password("admin123"),  # Change this in production!
-        role="admin"
-    )
-    db.add(admin_user)
-    await db.commit()
-    print("✅ Default admin user created")
-    print("   Email: admin@inventory.local")
-    print("   Password: admin123 (change this in production!)")
-
 
 async def main():
     """Main function to orchestrate data loading."""
@@ -220,9 +201,6 @@ async def main():
 
         # Create session and load data in correct order
         async with AsyncSessionLocal() as db:
-            # Create default user (foreign key requirement)
-            await create_default_user(db)
-
             # Load data in order of dependencies
             if (CSV_DATA_PATH / "categories.csv").exists():
                 await load_categories(db, CSV_DATA_PATH / "categories.csv")
@@ -251,9 +229,9 @@ async def main():
         print("\n📊 Summary:")
         print("   - All tables created")
         print("   - All CSV data loaded into corresponding tables")
-        print("   - Default admin user created")
         print("\n🔗 Database URL:", settings.DATABASE_URL)
-        print("\n⚠️  Remember to change the default admin password in production!")
+        print("\n📝 Next Step: Create an admin user")
+        print("   Run: python create_admin.py")
 
     except Exception as e:
         print(f"\n❌ Error during data loading: {e}")
