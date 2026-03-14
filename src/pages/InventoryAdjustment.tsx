@@ -40,7 +40,7 @@ export default function InventoryAdjustment() {
           </Button>
         </div>
 
-        <div className="bg-card border border-border rounded-sm overflow-hidden">
+        <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">

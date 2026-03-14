@@ -29,7 +29,7 @@ export default function Deliveries() {
       <div className="p-6 space-y-4 max-w-7xl">
         <h1 className="text-lg font-semibold">Delivery Orders</h1>
         <SearchBar value={search} onChange={setSearch} placeholder="Search by reference or customer..." />
-        <div className="bg-card border border-border rounded-sm overflow-hidden">
+        <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">

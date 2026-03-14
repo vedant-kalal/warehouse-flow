@@ -36,7 +36,7 @@ export default function Locations() {
                   <td className="py-2 px-3 font-mono text-xs">{l.code}</td>
                   <td className="py-2 px-3 text-sm text-muted-foreground">{l.warehouse}</td>
                   <td className="py-2 px-3">
-                    <span className={cn('inline-flex items-center rounded-sm border px-2 py-0.5 text-xs font-medium font-mono uppercase tracking-wider', typeColors[l.type])}>
+                    <span className={cn('inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium font-mono uppercase tracking-wider', typeColors[l.type])}>
                       {l.type}
                     </span>
                   </td>
