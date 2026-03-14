@@ -75,7 +75,7 @@ export default function InventoryAdjustment() {
           </table>
         </div>
 
-        <div className="flex items-center justify-between px-4 py-3 bg-card border border-border rounded-sm">
+        <div className="flex items-center justify-between px-4 py-3 bg-card border border-border rounded-lg">
           <span className="text-xs text-muted-foreground">All changes logged in Move History.</span>
           <span className="text-xs font-mono"><span className="text-muted-foreground">Lines changed:</span> <span className="text-foreground font-semibold">{changedCount}</span></span>
         </div>

@@ -15,7 +15,7 @@ export default function Warehouses() {
         <h1 className="text-lg font-semibold">Warehouses</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {warehouses.map(w => (
-            <div key={w.id} className="bg-card border border-border rounded-sm p-4 space-y-3 surface-glow">
+            <div key={w.id} className="bg-card border border-border rounded-lg p-4 space-y-3 surface-glow animate-fade-in hover:scale-[1.02] transition-transform duration-200" style={{ animationDelay: `${(w.id - 1) * 100}ms`, animationFillMode: 'both' }}>
               <div className="flex items-start justify-between">
                 <div>
                   <h3 className="font-semibold text-sm">{w.name}</h3>

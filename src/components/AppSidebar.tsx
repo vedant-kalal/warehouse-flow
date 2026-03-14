@@ -102,7 +102,7 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-border p-2">
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
-            <NavLink to="/profile" className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition-snappy', isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')} activeClassName="bg-accent text-foreground">
+            <NavLink to="/profile" className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')} activeClassName="bg-accent text-foreground">
               <User className="h-4 w-4 shrink-0" />
               {!collapsed && <span>Profile</span>}
             </NavLink>
