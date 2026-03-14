@@ -77,7 +77,7 @@ export default function ReceiptDetail() {
                 <span>Warehouse</span>
               </div>
             </div>
-            <div className="bg-card border border-border rounded-sm p-4 space-y-3">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-3 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Actions</h2>
               {receipt.status === 'draft' && <Button className="w-full btn-press" onClick={() => handleStatus('confirmed')}>Confirm Receipt</Button>}
               {receipt.status === 'confirmed' && <Button className="w-full btn-press" onClick={() => handleStatus('done')}>Mark as Done</Button>}
