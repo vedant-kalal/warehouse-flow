@@ -86,7 +86,7 @@ export default function Dashboard() {
             <SearchBar value={search} onChange={setSearch} placeholder="Search reference or partner..." />
             <div className="flex gap-1">
               {(['all', 'receipt', 'delivery', 'transfer'] as FilterType[]).map(t => (
-                <button key={t} onClick={() => setTypeFilter(t)} className={cn('px-3 py-1.5 text-xs rounded-sm font-mono uppercase tracking-wider transition-snappy btn-press', typeFilter === t ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground')}>
+                <button key={t} onClick={() => setTypeFilter(t)} className={cn('px-3 py-1.5 text-xs rounded-full font-mono uppercase tracking-wider transition-all duration-200 btn-press', typeFilter === t ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-accent/50')}>
                   {t === 'all' ? 'All' : t}
                 </button>
               ))}
