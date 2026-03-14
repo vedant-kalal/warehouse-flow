@@ -51,7 +51,7 @@ export function AppSidebar() {
           <NavLink
             to={item.url}
             end={item.url === '/dashboard'}
-            className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition-snappy', isActive(item.url) ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')}
+            className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive(item.url) ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')}
             activeClassName="bg-accent text-foreground"
           >
             <item.icon className="h-4 w-4 shrink-0" />
