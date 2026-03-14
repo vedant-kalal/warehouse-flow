@@ -69,7 +69,7 @@ export default function ReceiptDetail() {
             </div>
           </div>
           <div className="col-span-4 space-y-4">
-            <div className="bg-card border border-border rounded-sm p-4 space-y-2">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-2 animate-fade-in" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Route</h2>
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-muted-foreground">Supplier</span>
