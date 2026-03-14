@@ -64,7 +64,7 @@ export default function Auth() {
   if (forgotMode !== 'idle') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
-        <div className="w-full max-w-[380px] bg-card border border-border rounded-lg p-6 surface-border">
+        <div className="w-full max-w-[380px] bg-card border border-border rounded-xl p-6 surface-border animate-scale-in">
           <h1 className="text-lg font-semibold mb-1 text-foreground">Reset Password</h1>
           {forgotMode === 'email' ? (
             <form onSubmit={handleRequestOtp} className="space-y-4 mt-4">
