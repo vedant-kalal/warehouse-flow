@@ -18,9 +18,9 @@ export default function Profile() {
     <Layout>
       <div className="p-6 space-y-6 max-w-lg">
         <h1 className="text-lg font-semibold">Profile</h1>
-        <div className="bg-card border border-border rounded-sm p-6 space-y-6 surface-glow">
+        <div className="bg-card border border-border rounded-xl p-6 space-y-6 surface-glow animate-fade-in">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 bg-primary rounded-sm flex items-center justify-center">
+            <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg font-mono">{profile.avatar}</span>
             </div>
             <div>

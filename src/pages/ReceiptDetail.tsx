@@ -39,14 +39,14 @@ export default function ReceiptDetail() {
         <ProgressSteps current={receipt.status} />
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-8 space-y-4">
-            <div className="bg-card border border-border rounded-sm p-4 space-y-3">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-3 animate-fade-in">
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Order Details</h2>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div><span className="text-muted-foreground">Supplier:</span> <span className="ml-2">{receipt.supplier}</span></div>
                 <div><span className="text-muted-foreground">Scheduled:</span> <span className="ml-2 font-mono">{receipt.scheduledDate}</span></div>
               </div>
             </div>
-            <div className="bg-card border border-border rounded-sm overflow-hidden">
+            <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in" style={{ animationDelay: '100ms', animationFillMode: 'both' }}>
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-border">
@@ -69,7 +69,7 @@ export default function ReceiptDetail() {
             </div>
           </div>
           <div className="col-span-4 space-y-4">
-            <div className="bg-card border border-border rounded-sm p-4 space-y-2">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-2 animate-fade-in" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Route</h2>
               <div className="flex items-center gap-2 text-sm">
                 <span className="text-muted-foreground">Supplier</span>
@@ -77,7 +77,7 @@ export default function ReceiptDetail() {
                 <span>Warehouse</span>
               </div>
             </div>
-            <div className="bg-card border border-border rounded-sm p-4 space-y-3">
+            <div className="bg-card border border-border rounded-lg p-4 space-y-3 animate-fade-in" style={{ animationDelay: '200ms', animationFillMode: 'both' }}>
               <h2 className="text-xs uppercase tracking-widest text-muted-foreground font-medium">Actions</h2>
               {receipt.status === 'draft' && <Button className="w-full btn-press" onClick={() => handleStatus('confirmed')}>Confirm Receipt</Button>}
               {receipt.status === 'confirmed' && <Button className="w-full btn-press" onClick={() => handleStatus('done')}>Mark as Done</Button>}

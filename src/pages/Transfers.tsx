@@ -57,7 +57,7 @@ export default function Transfers() {
             </DialogTrigger>
             <DialogContent className="bg-card border-border">
               <DialogHeader><DialogTitle>New Transfer</DialogTitle></DialogHeader>
-              <div className="flex items-start gap-2 px-3 py-2 bg-status-done/10 border border-status-done/20 rounded-sm text-xs text-status-done mb-2">
+              <div className="flex items-start gap-2 px-3 py-2 bg-status-done/10 border border-status-done/20 rounded-lg text-xs text-status-done mb-2">
                 <Info className="h-3.5 w-3.5 mt-0.5 shrink-0" />
                 Moves stock between locations — total inventory unchanged.
               </div>
@@ -96,7 +96,7 @@ export default function Transfers() {
 
         <SearchBar value={search} onChange={setSearch} placeholder="Search by reference or location..." />
 
-        <div className="bg-card border border-border rounded-sm overflow-hidden">
+        <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">

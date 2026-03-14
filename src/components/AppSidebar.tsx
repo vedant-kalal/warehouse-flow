@@ -51,7 +51,7 @@ export function AppSidebar() {
           <NavLink
             to={item.url}
             end={item.url === '/dashboard'}
-            className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition-snappy', isActive(item.url) ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')}
+            className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive(item.url) ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')}
             activeClassName="bg-accent text-foreground"
           >
             <item.icon className="h-4 w-4 shrink-0" />
@@ -59,7 +59,7 @@ export function AppSidebar() {
               <>
                 <span className="flex-1">{item.title}</span>
                 {badge > 0 && (
-                  <span className={cn('text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-sm bg-primary/20 text-primary', badge > 0 && 'animate-pulse-badge')}>
+                  <span className={cn('text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-full bg-primary/20 text-primary', badge > 0 && 'animate-pulse-badge')}>
                     {badge}
                   </span>
                 )}
@@ -78,7 +78,7 @@ export function AppSidebar() {
           <span className="text-primary font-bold text-lg block text-center">C</span>
         ) : (
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-primary rounded-sm flex items-center justify-center">
+            <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xs">CI</span>
             </div>
             <span className="font-semibold text-sm tracking-tight text-foreground">CoreInventory</span>
@@ -102,7 +102,7 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-border p-2">
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
-            <NavLink to="/profile" className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition-snappy', isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')} activeClassName="bg-accent text-foreground">
+            <NavLink to="/profile" className={cn('flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200', isActive('/profile') ? 'bg-accent text-foreground' : 'text-sidebar-foreground hover:bg-accent/50')} activeClassName="bg-accent text-foreground">
               <User className="h-4 w-4 shrink-0" />
               {!collapsed && <span>Profile</span>}
             </NavLink>

@@ -61,7 +61,7 @@ export default function Dashboard() {
         <h1 className="text-lg font-semibold">Dashboard</h1>
 
         {outOfStock > 0 && (
-          <div className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-sm">
+          <div className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-lg animate-fade-in">
             <AlertTriangle className="h-4 w-4 text-primary shrink-0" />
             <span className="text-sm"><span className="font-mono font-semibold text-primary">{outOfStock}</span> product(s) out of stock. Review inventory immediately.</span>
           </div>
@@ -69,8 +69,8 @@ export default function Dashboard() {
 
         {/* KPI Cards */}
         <div className="grid grid-cols-5 gap-4">
-          {kpis.map(kpi => (
-            <div key={kpi.label} className={cn('h-24 bg-card border rounded-sm p-4 flex flex-col justify-between surface-glow', kpi.alert ? 'border-primary' : 'border-border')}>
+          {kpis.map((kpi, idx) => (
+            <div key={kpi.label} className={cn('h-24 bg-card border rounded-lg p-4 flex flex-col justify-between surface-glow animate-fade-in hover:scale-[1.02] transition-transform duration-200', kpi.alert ? 'border-primary' : 'border-border')} style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-widest text-muted-foreground">{kpi.label}</span>
                 <kpi.icon className={cn('h-3.5 w-3.5', kpi.alert ? 'text-primary' : 'text-muted-foreground')} />
@@ -86,21 +86,21 @@ export default function Dashboard() {
             <SearchBar value={search} onChange={setSearch} placeholder="Search reference or partner..." />
             <div className="flex gap-1">
               {(['all', 'receipt', 'delivery', 'transfer'] as FilterType[]).map(t => (
-                <button key={t} onClick={() => setTypeFilter(t)} className={cn('px-3 py-1.5 text-xs rounded-sm font-mono uppercase tracking-wider transition-snappy btn-press', typeFilter === t ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground')}>
+                <button key={t} onClick={() => setTypeFilter(t)} className={cn('px-3 py-1.5 text-xs rounded-full font-mono uppercase tracking-wider transition-all duration-200 btn-press', typeFilter === t ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-accent/50')}>
                   {t === 'all' ? 'All' : t}
                 </button>
               ))}
             </div>
             <div className="flex gap-1">
               {(['all', 'draft', 'confirmed', 'done'] as FilterStatus[]).map(s => (
-                <button key={s} onClick={() => setStatusFilter(s)} className={cn('px-3 py-1.5 text-xs rounded-sm font-mono uppercase tracking-wider transition-snappy btn-press', statusFilter === s ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground')}>
+                <button key={s} onClick={() => setStatusFilter(s)} className={cn('px-3 py-1.5 text-xs rounded-full font-mono uppercase tracking-wider transition-all duration-200 btn-press', statusFilter === s ? 'bg-accent text-foreground' : 'text-muted-foreground hover:text-foreground hover:bg-accent/50')}>
                   {s === 'all' ? 'All' : s}
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-sm overflow-hidden">
+          <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">

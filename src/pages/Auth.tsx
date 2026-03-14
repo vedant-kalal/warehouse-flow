@@ -64,7 +64,7 @@ export default function Auth() {
   if (forgotMode !== 'idle') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background p-4">
-        <div className="w-full max-w-[380px] bg-card border border-border rounded-lg p-6 surface-border">
+        <div className="w-full max-w-[380px] bg-card border border-border rounded-xl p-6 surface-border animate-scale-in">
           <h1 className="text-lg font-semibold mb-1 text-foreground">Reset Password</h1>
           {forgotMode === 'email' ? (
             <form onSubmit={handleRequestOtp} className="space-y-4 mt-4">
@@ -87,7 +87,7 @@ export default function Auth() {
                     value={d}
                     onChange={e => handleOtpChange(i, e.target.value)}
                     maxLength={1}
-                    className="w-10 h-12 text-center text-2xl font-mono bg-surface border border-border rounded-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-10 h-12 text-center text-2xl font-mono bg-surface border border-border rounded-lg text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-200"
                   />
                 ))}
               </div>
@@ -102,17 +102,17 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-[380px] bg-card border border-border rounded-lg p-6 surface-border">
+      <div className="w-full max-w-[380px] bg-card border border-border rounded-xl p-6 surface-border animate-scale-in">
         <div className="flex items-center gap-2 mb-6">
-          <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-sm">CI</span>
           </div>
           <span className="font-semibold text-foreground">Access CoreInventory</span>
         </div>
         <Tabs value={tab} onValueChange={setTab} className="w-full">
-          <TabsList className="w-full bg-muted rounded-sm">
-            <TabsTrigger value="login" className="flex-1 rounded-sm text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Login</TabsTrigger>
-            <TabsTrigger value="signup" className="flex-1 rounded-sm text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Sign Up</TabsTrigger>
+          <TabsList className="w-full bg-muted rounded-lg">
+            <TabsTrigger value="login" className="flex-1 rounded-lg text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Login</TabsTrigger>
+            <TabsTrigger value="signup" className="flex-1 rounded-lg text-xs uppercase tracking-wider data-[state=active]:bg-surface data-[state=active]:text-foreground">Sign Up</TabsTrigger>
           </TabsList>
           <TabsContent value="login">
             <form onSubmit={handleLogin} className="space-y-4 mt-4">

@@ -40,7 +40,7 @@ export default function InventoryAdjustment() {
           </Button>
         </div>
 
-        <div className="bg-card border border-border rounded-sm overflow-hidden">
+        <div className="bg-card border border-border rounded-lg overflow-hidden animate-fade-in">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">
@@ -62,7 +62,7 @@ export default function InventoryAdjustment() {
                         type="number"
                         value={counts[p.id] ?? p.onHand}
                         onChange={e => setCounts(c => ({ ...c, [p.id]: +e.target.value }))}
-                        className="w-24 h-8 px-2 text-sm font-mono bg-surface border border-border rounded-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        className="w-24 h-8 px-2 text-sm font-mono bg-surface border border-border rounded-lg text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-200"
                       />
                     </td>
                     <td className={cn('py-2 px-3 font-mono text-xs font-semibold', delta > 0 ? 'text-stock-healthy' : delta < 0 ? 'text-stock-critical' : 'text-muted-foreground')}>
@@ -75,7 +75,7 @@ export default function InventoryAdjustment() {
           </table>
         </div>
 
-        <div className="flex items-center justify-between px-4 py-3 bg-card border border-border rounded-sm">
+        <div className="flex items-center justify-between px-4 py-3 bg-card border border-border rounded-lg">
           <span className="text-xs text-muted-foreground">All changes logged in Move History.</span>
           <span className="text-xs font-mono"><span className="text-muted-foreground">Lines changed:</span> <span className="text-foreground font-semibold">{changedCount}</span></span>
         </div>
