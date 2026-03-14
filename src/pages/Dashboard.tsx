@@ -61,7 +61,7 @@ export default function Dashboard() {
         <h1 className="text-lg font-semibold">Dashboard</h1>
 
         {outOfStock > 0 && (
-          <div className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-sm">
+          <div className="flex items-center gap-3 px-4 py-3 bg-primary/10 border border-primary/20 rounded-lg animate-fade-in">
             <AlertTriangle className="h-4 w-4 text-primary shrink-0" />
             <span className="text-sm"><span className="font-mono font-semibold text-primary">{outOfStock}</span> product(s) out of stock. Review inventory immediately.</span>
           </div>
