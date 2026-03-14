@@ -69,7 +69,7 @@ export default function Dashboard() {
 
         {/* KPI Cards */}
         <div className="grid grid-cols-5 gap-4">
-          {kpis.map(kpi => (
+          {kpis.map((kpi, idx) => (
             <div key={kpi.label} className={cn('h-24 bg-card border rounded-sm p-4 flex flex-col justify-between surface-glow', kpi.alert ? 'border-primary' : 'border-border')}>
               <div className="flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-widest text-muted-foreground">{kpi.label}</span>
