@@ -183,6 +183,31 @@ async def load_operation_items(db: AsyncSession, csv_path: Path):
 
 
 
+async def create_system_user(db: AsyncSession):
+    """Create a system user for operations without a real creator."""
+    print("\n👤 Creating system user...")
+
+    # Check if system user already exists
+    from sqlalchemy import select
+    result = await db.execute(
+        select(User).where(User.id == "00000000-0000-0000-0000-000000000000")
+    )
+    existing = result.scalar_one_or_none()
+
+    if not existing:
+        system_user = User(
+            id="00000000-0000-0000-0000-000000000000",
+            email="system@inventory.local",
+            password_hash="",  # System user, no password
+            role="system"
+        )
+        db.add(system_user)
+        await db.commit()
+        print("✅ System user created")
+    else:
+        print("✅ System user already exists")
+
+
 async def main():
     """Main function to orchestrate data loading."""
     print("=" * 60)
@@ -201,6 +226,9 @@ async def main():
 
         # Create session and load data in correct order
         async with AsyncSessionLocal() as db:
+            # Create system user FIRST (required for operations foreign key)
+            await create_system_user(db)
+
             # Load data in order of dependencies
             if (CSV_DATA_PATH / "categories.csv").exists():
                 await load_categories(db, CSV_DATA_PATH / "categories.csv")
