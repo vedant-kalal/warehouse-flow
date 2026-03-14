@@ -62,7 +62,7 @@ export default function InventoryAdjustment() {
                         type="number"
                         value={counts[p.id] ?? p.onHand}
                         onChange={e => setCounts(c => ({ ...c, [p.id]: +e.target.value }))}
-                        className="w-24 h-8 px-2 text-sm font-mono bg-surface border border-border rounded-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                        className="w-24 h-8 px-2 text-sm font-mono bg-surface border border-border rounded-lg text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-200"
                       />
                     </td>
                     <td className={cn('py-2 px-3 font-mono text-xs font-semibold', delta > 0 ? 'text-stock-healthy' : delta < 0 ? 'text-stock-critical' : 'text-muted-foreground')}>
